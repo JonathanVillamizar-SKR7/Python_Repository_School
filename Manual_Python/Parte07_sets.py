@@ -1,28 +1,61 @@
 # Sets en Python (Conjuntos)
-# Son estructuras de datos que permiten almacenar valores únicos, es decir, no admiten repetidos. Además no mantienen un orden definido.
+# Los sets o conjuntos en Python son estructuras de datos que permiten almacenar valores únicos.
+# No admiten elementos repetidos y no mantienen un orden definido.
 
-# Si usas llaves {} vacías, Python interpreta que estás creando un diccionario, no un set.
-# Para crear un set vacío siempre hay que usar set().
-# Pero si el set tiene elementos si puedes usar {}
+# Nota importante:
+# Si usás llaves {} vacías, Python interpreta que estás creando un diccionario.
+# Para crear un set vacío, siempre tenés que usar set().
 
-
-# Sets
-my_set = set() # Crea un conjunto vacío
-my_other_set = {} #Crea un diccionario vacío
-
+my_set = set()      # crea un conjunto vacío
+my_other_set = {}   # Crea un diccionario vacío
 print(type(my_set))
-print(type(my_other_set)) #Inicialmente es un diccionario
+print(type(my_other_set))  # Inicialmente es un diccionario
 
-my_other_set = {"Jonathan", "Villamizar", 21} #Crea un conjunto
+# DATOS PERSONALIZADOS
+my_other_set = {"Jonathan", "Villamizar", 21} # crea un conjunto
 print(type(my_other_set))
 
-
+# Usamos len para mirar cuantos objetos tenemos dentro del set.
 print(len(my_other_set))
 
+# Diferencias: Los sets NO mantienen orden.
+my_other_set.add("Jonathan") # Un set NO reconoce elementos repetidos
+print(my_other_set) 
+# Cada ejecución puede mostrar un orden diferente.
 
+# Comprobar existencia (in)
+# Los set son muy rápidos para buscar elementos.
+print("Jonathan" in my_other_set)
+print("Villamizar" in my_other_set)
 
-#Cuándo se añade un elemento a un set, no garantiza que aparezca al final, ni en un lugar concreto.
-my_other_set.add("Guaido")
+# Eliminar elementos de un set (.remove)
+my_other_set = {"Python", "Jonathan", "Developer"}
+my_other_set.remove("Jonathan")
 print(my_other_set)
 
-#Si un elemento aparece dos veces, solo se guarda una vez
+# Vaciar un set completo (.clear)
+my_other_set.clear()
+print(my_other_set)
+
+# Eliminar por completo un set (del)
+del my_other_set
+
+# Convertir un set en list
+# Ahora puedes usar índices (my_list[0]), cosa que los set no permiten.
+my_set = {"Jonathan", "Villamizar", 21}
+my_list = list(my_set)
+print(my_list)
+print(my_list[0])
+
+# Unir conjuntos con el método union()
+# Une conjuntos, elimina duplicados automáticamente y devuelve un nuevo conjunto.
+my_other_set = {"java", "php", "Python"}
+my_new_set = my_set.union(my_other_set)
+print(my_new_set)
+
+# Diferencia - Intersección en set
+# Elementos que están en my_new_set pero NO en my_set
+print("Diferencia:", my_new_set.difference(my_set))
+
+# Elementos que están en ambos conjuntos
+print("Intersección:", my_set.intersection(my_other_set))
